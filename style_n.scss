@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    > header {
+        background-color: rgb(0, 0, 0);
+        font-size: 24px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        > nav > a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            position: relative;
+            transition: 1s;
+
+            &:after {
+                content: "";
+                width: 0;
+                height: 2px;
+                background-color: white;
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                transition: 1s;
+            }
+
+            &:hover {
+                color: rgb(42, 253, 0);
+                transition: 1s;
+
+                &:after {
+                    width: 100%;
+                    background-color: rgb(42, 253, 0);
+                    transition: 1s;
+                }
+            }
+
+            &:not(:last-child) {
+                margin-right: 24px;
+            }
+        }
+    }
+
+    > main {
+        background-color: rgb(125, 125, 128);
+        height: 1000px;
+
+        > div {
+            padding: 16px;
+
+            > h1 {
+                margin: 0;
+                color: rgb(255, 255, 255);
+                padding: 4px;
+                background-color: rgb(173, 173, 164);
+                border-radius: 6px;
+            }
+        }
+
+        > section.portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+
+            > .example {
+                width: calc(100% / 3 - 28px);
+                margin: 8px;
+                padding: 4px;
+                background-color: rgba(0, 0, 0, 0.473);
+                color: white;
+                border-radius: 6px;
+                box-shadow: 2px 5px 10px rgba(18, 105, 204, 0.699);
+
+                &:hover {
+                    background-color: rgb(248, 165, 165);
+                    box-shadow: 4px 10px 20px rgb(138, 241, 138);
+                    color: black;
+                    transform: scale(1.15);
+                    transition: 1s;
+                }
+
+                > .card_title {
+                    font-weight: bold;
+                }
+
+                > footer {
+                    position: relative;
+                    width: fit-content;
+                    border: 1px solid white;
+                    border-radius: 4px;
+
+                    &:hover {
+                        > .list {
+                          width: auto;  
+                        }                        
+                    }
+
+                    > div {
+                        margin-left: 20px;
+                    }
+
+                    > div.selector {
+                        display: flex;
+                        align-items: baseline;
+                
+                        &:hover {
+                            background-color: white;
+                
+                            svg {
+                                transform: rotate(360deg);
+                                transition: 1s;
+                            }
+                /*
+                            > .head {
+                                background-color: white;
+                            }
+                */
+                            > .list {
+                                display: flex;
+                                width: 100%;
+                                cursor: pointer;
+                                box-sizing: border-box;
+                                /* background-color: white; */
+                            }
+                
+                        }
+                
+                        > .head {
+                            margin-top: 8px;
+                            margin-right: 12px;
+            
+                            > svg {
+                                position: absolute;
+                                bottom: 2px;
+                                left: 2px;
+                            }
+                        }
+
+                        > .list {
+                            width: 0;
+                            display: none;
+                
+                            > div {
+                                margin-right: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > footer {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 2s;
+
+        &:hover {
+            background-color: white;
+            color: black;
+            transition: 2s;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    body > main > section.portfolio > .example {
+        width: calc(100% / 2 - 28px);
+    }
+}
+
+@media (max-width: 400px) {
+    body > main > section.portfolio > .example {
+        width: calc(100% - 28px);
+    }
+}
